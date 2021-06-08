@@ -1,6 +1,5 @@
 # Pull base image.
 FROM node:latest
-MAINTAINER Harold Thetiot <hthetiot@gmail.com>
 
 # Upgrade npm
 RUN npm i npm@latest -g
@@ -23,8 +22,6 @@ RUN npm install open-easyrtc/open-easyrtc#$EASYRTC_BRANCH
 RUN npm install --production
 
 ADD . $APPDIR
-
-VOLUME ['certs', 'static']
 
 # Replace 'easyrtc = require("..");' by 'easyrtc = require("open-easyrtc");''
 # To use easyrtc from node_modules instead of parent directory
