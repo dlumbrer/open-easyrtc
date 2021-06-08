@@ -40,4 +40,4 @@ EXPOSE 8080 8443
 ENV SYLAPS_ENV all
 
 ENTRYPOINT ["npm"]
-CMD ["server_ssl"]
+CMD ["run server_ssl"]
