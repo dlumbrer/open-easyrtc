@@ -1,25 +1,12 @@
-version: "3.1"
-
-services:
-  easyrtc-server:
-    image: babiaxr/easyrtc:nonssl
-    container_name: easyrtc-server
-    build:
-      context: .
-      args:
-        EASYRTC_BRANCH: "master"
-    command: server_ssl
-    volumes:
-      - ./certs:/usr/src/app/certs:ro
-    networks:
-      - frontend
-    ports:
-      - "8080:8080"
-    tty: true
-    stdin_open: true
-    volumes:
-      - ./static:/static:ro
-
-networks:
-  frontend:
-  backend:
+---
+  version: "2.1"
+  services:
+    babiartc-server:
+      image: babiaxr/easyrtc:nonssl
+      container_name: babiartc
+      ports:
+        - 8080:8080
+      restart: unless-stopped
+  volumes:
+    certsbabia:
+      external: true

@@ -1,0 +1,14 @@
+---
+    version: "2.1"
+    services:
+      sslbabiartc-server:
+        image: babiaxr/easyrtc:sslcustomcerts
+        container_name: sslbabiartc
+        ports:
+          - 49153:8443
+        volumes:
+          - certsbabia:/app/open-easyrtc/server_example/customcerts
+        restart: unless-stopped
+    volumes:
+      certsbabia:
+        external: true
